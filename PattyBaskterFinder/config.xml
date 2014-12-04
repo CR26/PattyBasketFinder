@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+	<rightBorder>0</rightBorder>
+	<leftBorder>0</leftBorder>
+	<middleRow>410</middleRow>
+	<rowsToCheck>5</rowsToCheck>
+	<spaceBetweenRows>5</spaceBetweenRows>
+</config>
