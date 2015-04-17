@@ -35,15 +35,6 @@ public class BusinessLogic {
 		return MatrixFilter.matToBufferedImage(snapshotMatrix);
 	}
 
-	public Image takeFileImage(String path) {
-		try {
-			snapshotMatrix = MatrixFilter.imageToMat(dataAccess.getFileImage(path));
-			return MatrixFilter.matToBufferedImage(snapshotMatrix);
-		} catch (RuntimeException ex) {
-			throw new RuntimeException(ex.getMessage());
-		}
-	}
-
 	public VideoCapture startVideoCapture() {
 		return dataAccess.startCameraVideoCapture();
 	}
@@ -56,8 +47,11 @@ public class BusinessLogic {
 		return MatrixFilter.getInstance().exchangeRow(MatrixFilter.matToBufferedImage(snapshotMatrix), row);
 	}
 
-	public int findBasket(int row, int left, int right) {
-		return RowAnalyzer.getInstance().findBasket(MatrixFilter.getInstance().getRow(snapshotMatrix, row), left, right);
+	public int findBasket(int row, int leftBorder, int rightBorder) {
+		if (snapshotMatrix == null) {
+			takeSnapShot();
+		}
+		return RowAnalyzer.getInstance().findBasket(MatrixFilter.getInstance().getRow(snapshotMatrix, row), leftBorder, rightBorder);
 	}
 
 	public Image getOneColumnImage(int column) {

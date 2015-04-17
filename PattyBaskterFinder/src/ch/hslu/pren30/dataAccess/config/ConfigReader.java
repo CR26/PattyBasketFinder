@@ -29,16 +29,16 @@ class ConfigReader {
 		}
 	}
 
-	private String getMiddleRow() {
-		return configElement.getElementsByTagName("middleRow").item(0).getChildNodes().item(0).getNodeValue();
+	private int getMiddleRow() {
+		return Integer.valueOf(configElement.getElementsByTagName("middleRow").item(0).getChildNodes().item(0).getNodeValue());
 	}
 
-	private String getLeftBorder() {
-		return configElement.getElementsByTagName("leftBorder").item(0).getChildNodes().item(0).getNodeValue();
+	private int getLeftBorder() {
+		return Integer.valueOf(configElement.getElementsByTagName("leftBorder").item(0).getChildNodes().item(0).getNodeValue());
 	}
 
-	private String getRightBorder() {
-		return configElement.getElementsByTagName("rightBorder").item(0).getChildNodes().item(0).getNodeValue();
+	private int getRightBorder() {
+		return Integer.valueOf(configElement.getElementsByTagName("rightBorder").item(0).getChildNodes().item(0).getNodeValue());
 	}
 
 	private int getRowsToCheck() {

@@ -2,9 +2,9 @@ package ch.hslu.pren30.dataAccess.config;
 
 public class Config {
 	private static Config instance;
-	private String middleRow;
-	private String leftBorder;
-	private String rightBorder;
+	private int middleRow;
+	private int leftBorder;
+	private int rightBorder;
 	private int spaceBetweenRows;
 	private int rowsToCheck;
 
@@ -19,27 +19,27 @@ public class Config {
 		return instance;
 	}
 
-	public final String getMiddleRow() {
+	public final int getMiddleRow() {
 		return middleRow;
 	}
 
-	final void setMiddleRow(String middleRow) {
+	final void setMiddleRow(int middleRow) {
 		this.middleRow = middleRow;
 	}
 
-	public final String getLeftBorder() {
+	public final int getLeftBorder() {
 		return leftBorder;
 	}
 
-	final void setLeftBorder(String leftBorder) {
+	final void setLeftBorder(int leftBorder) {
 		this.leftBorder = leftBorder;
 	}
 
-	public final String getRightBorder() {
+	public final int getRightBorder() {
 		return rightBorder;
 	}
 
-	final void setRightBorder(String rightBorder) {
+	final void setRightBorder(int rightBorder) {
 		this.rightBorder = rightBorder;
 	}
 
