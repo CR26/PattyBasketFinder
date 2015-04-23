@@ -1,4 +1,4 @@
-package ch.hslu.pren30.dataAccess.config;
+package ch.hslu.pren30.PattyBasketFinder.dataAccess.config;
 
 import java.io.File;
 import java.io.IOException;

@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package ch.hslu.pren30.dataAccess;
+package ch.hslu.pren30.PattyBasketFinder.dataAccess;
 
 import java.awt.Image;
 
 import org.opencv.core.Mat;
 import org.opencv.highgui.VideoCapture;
 
-import ch.hslu.pren30.dataAccess.camera.Webcam;
+import ch.hslu.pren30.PattyBasketFinder.dataAccess.camera.Webcam;
 
 /** @author Christian Roth */
 public class DataAccess {

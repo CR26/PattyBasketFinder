@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ch.hslu.pren30.dataAccess.camera;
+package ch.hslu.pren30.PattyBasketFinder.dataAccess.camera;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -13,7 +13,7 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.highgui.VideoCapture;
 
-import ch.hslu.pren30.finder.MatrixFilter;
+import ch.hslu.pren30.PattyBasketFinder.finder.MatrixFilter;
 
 /** @author Christian Roth */
 public class Webcam {

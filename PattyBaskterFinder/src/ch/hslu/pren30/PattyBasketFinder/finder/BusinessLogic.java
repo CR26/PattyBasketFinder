@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package ch.hslu.pren30.finder;
+package ch.hslu.pren30.PattyBasketFinder.finder;
 
 import java.awt.Image;
 
 import org.opencv.core.Mat;
 import org.opencv.highgui.VideoCapture;
 
-import ch.hslu.pren30.dataAccess.DataAccess;
+import ch.hslu.pren30.PattyBasketFinder.dataAccess.DataAccess;
 
 /** @author Christian Roth */
 public class BusinessLogic {

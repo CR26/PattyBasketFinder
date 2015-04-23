@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ch.hslu.pren30.finder;
+package ch.hslu.pren30.PattyBasketFinder.finder;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
