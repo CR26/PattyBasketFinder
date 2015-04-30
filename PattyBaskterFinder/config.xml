@@ -2,7 +2,8 @@
 <config>
 	<rightBorder>0</rightBorder>
 	<leftBorder>0</leftBorder>
-	<middleRow>410</middleRow>
+	<middleRow>100</middleRow>
 	<rowsToCheck>5</rowsToCheck>
 	<spaceBetweenRows>5</spaceBetweenRows>
+	<imagePath>C:\Temp\left.png</imagePath>
 </config>

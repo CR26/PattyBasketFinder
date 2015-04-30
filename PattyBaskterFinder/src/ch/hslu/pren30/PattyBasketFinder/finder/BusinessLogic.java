@@ -1,77 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ch.hslu.pren30.PattyBasketFinder.finder;
 
-import java.awt.Image;
+import java.util.List;
 
 import org.opencv.core.Mat;
-import org.opencv.highgui.VideoCapture;
+import org.opencv.highgui.Highgui;
 
-import ch.hslu.pren30.PattyBasketFinder.dataAccess.DataAccess;
+import ch.hslu.pren30.PattyBasketFinder.config.Config;
 
 /** @author Christian Roth */
 public class BusinessLogic {
+	private final Mat imageMatrix;
 
-	private final DataAccess dataAccess;
-
-	private Mat snapshotMatrix;
-
-	public BusinessLogic(DataAccess dal) {
-		dataAccess = dal;
+	public BusinessLogic() {
+		imageMatrix = Highgui.imread(Config.getInstance().getPicturePath());
 	}
 
-	public Image takeSnapShot() {
-		do {
-			snapshotMatrix = dataAccess.getCameraMat();
-		} while (snapshotMatrix == null);
-		return MatrixFilter.matToBufferedImage(snapshotMatrix);
-	}
-
-	public Image getOriginalImage() {
-		return MatrixFilter.matToBufferedImage(snapshotMatrix);
-	}
-
-	public VideoCapture startVideoCapture() {
-		return dataAccess.startCameraVideoCapture();
-	}
-
-	public void stopVideoCapture() {
-		dataAccess.stopCameraVideoCapture();
-	}
-
-	public Image getRowImage(int row) {
-		return MatrixFilter.getInstance().exchangeRow(MatrixFilter.matToBufferedImage(snapshotMatrix), row);
-	}
-
-	public int findBasket(int row, int leftBorder, int rightBorder) {
-		if (snapshotMatrix == null) {
-			takeSnapShot();
-		}
-		return RowAnalyzer.getInstance().findBasket(MatrixFilter.getInstance().getRow(snapshotMatrix, row), leftBorder, rightBorder);
-	}
-
-	public Image getOneColumnImage(int column) {
-		return MatrixFilter.getInstance().exchangeColumn(MatrixFilter.matToBufferedImage(snapshotMatrix), column);
-	}
-
-	public Image getTwoColumnImage(int columnA, int columnB) {
-		return MatrixFilter.getInstance().exchangeColumn(getOneColumnImage(columnA), columnB);
-	}
-
-	public int[] getData(int row) {
-		return MatrixFilter.getInstance().getRow(snapshotMatrix, row);
-	}
-
-	public int getAverage(int row, int left, int right) {
-		return RowAnalyzer.getInstance().getAverageOfArray(
-				RowAnalyzer.getInstance().cutArray(MatrixFilter.getInstance().getRow(snapshotMatrix, row), left, right));
-	}
-
-	public void changeCamera(int cameraNumber) {
-		dataAccess.changeCamera(cameraNumber);
+	public int findBasket(final int row, final int leftBorder, final int rightBorder) {
+		RowAnalyzer analyzer = new RowAnalyzer();
+		List<Integer> filteredRow = new MatrixFilter().getRow(imageMatrix, row);
+		return analyzer.findBasket(filteredRow, leftBorder, rightBorder);
 	}
 }

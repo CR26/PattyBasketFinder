@@ -1,4 +1,4 @@
-package ch.hslu.pren30.PattyBasketFinder.dataAccess.config;
+package ch.hslu.pren30.PattyBasketFinder.config;
 
 public class Config {
 	private static Config instance;
@@ -7,6 +7,7 @@ public class Config {
 	private int rightBorder;
 	private int spaceBetweenRows;
 	private int rowsToCheck;
+	private String picturePath;
 
 	private Config() {
 	}
@@ -57,6 +58,14 @@ public class Config {
 
 	final void setRowsToCheck(int rowsToCheck) {
 		this.rowsToCheck = rowsToCheck;
+	}
+
+	public final String getPicturePath() {
+		return picturePath;
+	}
+
+	final void setPicturePath(String picturePath) {
+		this.picturePath = picturePath;
 	}
 
 }

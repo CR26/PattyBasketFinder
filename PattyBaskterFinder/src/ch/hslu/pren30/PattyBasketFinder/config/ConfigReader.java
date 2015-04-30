@@ -1,14 +1,11 @@
-package ch.hslu.pren30.PattyBasketFinder.dataAccess.config;
+package ch.hslu.pren30.PattyBasketFinder.config;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 class ConfigReader {
 	private Element configElement;
@@ -23,8 +20,9 @@ class ConfigReader {
 			config.setRightBorder(getRightBorder());
 			config.setRowsToCheck(getRowsToCheck());
 			config.setSpaceBetweenRows(getSpaceBetweenRows());
+			config.setPicturePath(getImagePath());
 
-		} catch (SAXException | IOException | ParserConfigurationException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -49,6 +47,11 @@ class ConfigReader {
 	private int getSpaceBetweenRows() {
 		String value = configElement.getElementsByTagName("spaceBetweenRows").item(0).getChildNodes().item(0).getNodeValue();
 		return Integer.parseInt(value);
+	}
+
+	private String getImagePath() {
+		return configElement.getElementsByTagName("imagePath").item(0).getChildNodes().item(0).getNodeValue();
+
 	}
 
 }
